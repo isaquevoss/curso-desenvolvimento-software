@@ -105,7 +105,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="uModulos.pas">
+        <DCCReference Include="uDmModulos.pas">
             <Form>dmModulos</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>

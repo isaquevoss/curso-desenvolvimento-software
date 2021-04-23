@@ -1,4 +1,4 @@
-unit uDmProdutos;
+unit uDmModulos;
 
 interface
 
@@ -9,31 +9,21 @@ uses
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
-  TdmProdutos = class(TDataModule)
-    QrProdutos: TFDQuery;
+  TdmModulos = class(TDataModule)
+    QrModulos: TFDQuery;
   private
     { Private declarations }
   public
     { Public declarations }
-    procedure carregarQrProdutos();
   end;
 
 var
-  dmProdutos: TdmProdutos;
+  dmModulos: TdmModulos;
 
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
-
-{ TdmProdutos }
-
-procedure TdmProdutos.carregarQrProdutos;
-begin
-  QrProdutos.SQL.Clear();
-  QrProdutos.SQL.Add('select * from produtos');
-  QrProdutos.Open();
-end;
 
 end.

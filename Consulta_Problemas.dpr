@@ -9,7 +9,7 @@ uses
   uCadastroProblema in 'uCadastroProblema.pas' {frmCadastroProblema},
   uLogin in 'uLogin.pas' {frmLogin},
   uDmProdutos in 'uDmProdutos.pas' {dmProdutos: TDataModule},
-  uModulos in 'uModulos.pas' {dmModulos: TDataModule};
+  uDmModulos in 'uDmModulos.pas' {dmModulos: TDataModule};
 
 {$R *.res}
 
