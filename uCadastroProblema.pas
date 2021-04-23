@@ -12,6 +12,10 @@ type
     mmProblema: TMemo;
     btCancelar: TButton;
     btGravar: TButton;
+    cbProduto: TComboBox;
+    cbModulo: TComboBox;
+    lbProduto: TLabel;
+    LbModulo: TLabel;
     procedure btCancelarClick(Sender: TObject);
     procedure btGravarClick(Sender: TObject);
   private

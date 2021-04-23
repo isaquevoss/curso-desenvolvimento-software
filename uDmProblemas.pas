@@ -39,6 +39,7 @@ implementation
 
 function TdmProblemas.SalvarProblema(problema: string): Boolean;
 begin
+
   QrUpdateInsert.SQL.Clear();
 
   QrUpdateInsert.SQL.Add('insert into problemas (descricao) values (:descricao)');

@@ -2,7 +2,7 @@ object frmCadastroProblema: TfrmCadastroProblema
   Left = 0
   Top = 0
   Caption = 'frmCadastroProblema'
-  ClientHeight = 242
+  ClientHeight = 338
   ClientWidth = 474
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,9 +13,23 @@ object frmCadastroProblema: TfrmCadastroProblema
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object lbProduto: TLabel
+    Left = 56
+    Top = 21
+    Width = 38
+    Height = 13
+    Caption = 'Produto'
+  end
+  object LbModulo: TLabel
+    Left = 56
+    Top = 72
+    Width = 34
+    Height = 13
+    Caption = 'M'#243'dulo'
+  end
   object mmProblema: TMemo
-    Left = 48
-    Top = 24
+    Left = 56
+    Top = 144
     Width = 353
     Height = 89
     Hint = 'Digite seu problema'
@@ -25,7 +39,7 @@ object frmCadastroProblema: TfrmCadastroProblema
   end
   object btCancelar: TButton
     Left = 296
-    Top = 176
+    Top = 280
     Width = 75
     Height = 25
     Caption = 'Cancelar'
@@ -33,12 +47,28 @@ object frmCadastroProblema: TfrmCadastroProblema
     OnClick = btCancelarClick
   end
   object btGravar: TButton
-    Left = 80
-    Top = 176
+    Left = 72
+    Top = 280
     Width = 75
     Height = 25
     Caption = 'Gravar'
     TabOrder = 2
     OnClick = btGravarClick
+  end
+  object cbProduto: TComboBox
+    Left = 56
+    Top = 40
+    Width = 353
+    Height = 21
+    TabOrder = 3
+    Text = 'cbProduto'
+  end
+  object cbModulo: TComboBox
+    Left = 56
+    Top = 91
+    Width = 353
+    Height = 21
+    TabOrder = 4
+    Text = 'ComboBox1'
   end
 end

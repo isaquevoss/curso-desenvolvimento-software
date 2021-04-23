@@ -39,7 +39,8 @@ uses
 
 procedure TfrmPrincipal.btCadstroProblemasClick(Sender: TObject);
 begin
-  frmCadastroProblema.Show();
+ frmCadastroProblema.Show();
+
 end;
 
 procedure TfrmPrincipal.Button1DragOver(Sender, Source: TObject; X, Y: Integer;

@@ -3,7 +3,6 @@ object dmProblemas: TdmProblemas
   Height = 221
   Width = 430
   object QrProblemas: TFDQuery
-    Active = True
     Connection = DataModule1.Conexao
     SQL.Strings = (
       'select * from problemas')
