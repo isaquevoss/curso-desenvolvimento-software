@@ -18,10 +18,12 @@ type
     LbModulo: TLabel;
     procedure btCancelarClick(Sender: TObject);
     procedure btGravarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure CarregarProdutos();
+    procedure CarregarModulos();
   end;
 
 var
@@ -30,7 +32,7 @@ var
 implementation
 
 uses
-  udmproblemas;
+  udmproblemas, uDmModulos, uDmProdutos;
 
 {$R *.dfm}
 
@@ -38,7 +40,8 @@ procedure TfrmCadastroProblema.btCancelarClick(Sender: TObject);
 var
   retorno: Integer;
 begin
-  retorno := MessageDlg('Deseja cancelar a operação ?', mtConfirmation , [mbyes,mbno,mbCancel] , 0);
+  retorno := MessageDlg('Deseja cancelar a operação ?', mtConfirmation,
+    [mbyes, mbno, mbCancel], 0);
 
   if retorno = mrYes then
   begin
@@ -48,11 +51,44 @@ begin
 end;
 
 procedure TfrmCadastroProblema.btGravarClick(Sender: TObject);
+var
+  idModulo: Integer;
 begin
+  idModulo := dmModulos.buscarIdModuloPorDescricao(cbModulo.Text);
 
   dmProblemas.SalvarProblema(mmProblema.Lines.Text);
 
   Close();
+end;
+
+procedure TfrmCadastroProblema.CarregarModulos;
+begin
+  dmModulos.carregarQrModulos();
+  cbModulo.Items.Clear();
+  cbModulo.Items.Add('Módulo que não existe');
+  while not dmModulos.QrModulos.Eof do
+  begin
+    cbModulo.Items.Add(dmModulos.QrModulos.FieldByName('nome').AsString);
+    dmModulos.QrModulos.Next();
+  end;
+
+end;
+
+procedure TfrmCadastroProblema.CarregarProdutos;
+begin
+  dmProdutos.carregarQrProdutos();
+  cbProduto.Clear();
+  while not dmProdutos.QrProdutos.Eof do
+  begin
+    cbProduto.Items.Add(dmProdutos.QrProdutos.FieldByName('nome').AsString);
+    dmProdutos.QrProdutos.Next();
+  end;
+end;
+
+procedure TfrmCadastroProblema.FormShow(Sender: TObject);
+begin
+  CarregarProdutos();
+  CarregarModulos();
 end;
 
 end.

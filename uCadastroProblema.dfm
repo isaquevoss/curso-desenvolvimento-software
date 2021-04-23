@@ -11,6 +11,7 @@ object frmCadastroProblema: TfrmCadastroProblema
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lbProduto: TLabel
@@ -60,15 +61,15 @@ object frmCadastroProblema: TfrmCadastroProblema
     Top = 40
     Width = 353
     Height = 21
+    Style = csDropDownList
     TabOrder = 3
-    Text = 'cbProduto'
   end
   object cbModulo: TComboBox
     Left = 56
     Top = 91
     Width = 353
     Height = 21
+    Style = csDropDownList
     TabOrder = 4
-    Text = 'ComboBox1'
   end
 end
