@@ -17,9 +17,6 @@ type
   TfrmPrincipal = class(TForm)
     pnMenu: TPanel;
     btCadstroProblemas: TButton;
-    procedure Button1DragOver(Sender, Source: TObject; X, Y: Integer;
-      State: TDragState; var Accept: Boolean);
-    procedure Button1MouseLeave(Sender: TObject);
     procedure btCadstroProblemasClick(Sender: TObject);
   private
     { Private declarations }
@@ -39,19 +36,7 @@ uses
 
 procedure TfrmPrincipal.btCadstroProblemasClick(Sender: TObject);
 begin
- frmCadastroProblema.Show();
-
-end;
-
-procedure TfrmPrincipal.Button1DragOver(Sender, Source: TObject; X, Y: Integer;
-  State: TDragState; var Accept: Boolean);
-begin
-  ShowMessage('HELLO WORLD !!!!!!!!!!');
-end;
-
-procedure TfrmPrincipal.Button1MouseLeave(Sender: TObject);
-begin
-  ShowMessage('HELLO WORLD !!!!!!!!!!');
+  frmCadastroProblema.Show();
 end;
 
 end.

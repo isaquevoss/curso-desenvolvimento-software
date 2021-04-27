@@ -18,7 +18,7 @@ type
 
   public
     { Public declarations }
-    function SalvarProblema(problema: string): Boolean;
+    function SalvarProblema(problema: string; idModulo: Integer; idProblema: Integer): Boolean;
   end;
 
 var
@@ -37,14 +37,17 @@ implementation
 
 { TdmProblemas }
 
-function TdmProblemas.SalvarProblema(problema: string): Boolean;
+function TdmProblemas.SalvarProblema(problema: string; idModulo: Integer; idProblema: Integer): Boolean;
 begin
-
   QrUpdateInsert.SQL.Clear();
 
-  QrUpdateInsert.SQL.Add('insert into problemas (descricao) values (:descricao)');
+  QrUpdateInsert.SQL.Add('insert into problemas (descricao, modulo_id, produto_id)');
+  QrUpdateInsert.SQL.Add(' values ');
+  QrUpdateInsert.SQL.Add('(:descricao, :modulo_id, :produto_id)');
 
   QrUpdateInsert.ParamByName('descricao').asString := problema;
+  QrUpdateInsert.ParamByName('modulo_id').AsInteger := idModulo;
+  QrUpdateInsert.ParamByName('produto_id').AsInteger := idProblema;
 
   QrUpdateInsert.ExecSQL();
 end;

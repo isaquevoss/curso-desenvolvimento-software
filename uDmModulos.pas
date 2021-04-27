@@ -44,7 +44,6 @@ begin
   end;
 
   Result := QrBuscar.FieldByName('id').AsInteger;
-
 end;
 
 procedure TdmModulos.carregarQrModulos;

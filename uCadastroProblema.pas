@@ -53,10 +53,12 @@ end;
 procedure TfrmCadastroProblema.btGravarClick(Sender: TObject);
 var
   idModulo: Integer;
+  idProduto: Integer;
 begin
   idModulo := dmModulos.buscarIdModuloPorDescricao(cbModulo.Text);
+  idProduto := dmProdutos.buscarIdProdutoPorDescricao(cbProduto.Text);
 
-  dmProblemas.SalvarProblema(mmProblema.Lines.Text);
+  dmProblemas.SalvarProblema(mmProblema.Lines.Text, idModulo, idProduto);
 
   Close();
 end;

@@ -19,7 +19,6 @@ object DataModule1: TDataModule1
       'Port=33306'
       'Server=127.0.0.1'
       'DriverID=MySQL')
-    Connected = True
     Left = 72
     Top = 32
   end
