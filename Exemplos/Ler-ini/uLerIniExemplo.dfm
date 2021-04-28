@@ -58,7 +58,7 @@ object Form3: TForm3
     Width = 273
     Height = 21
     TabOrder = 2
-    Text = 'Arquivo.ini'
+    Text = '.\Arquivo.ini'
   end
   object EdCampo1: TEdit
     Left = 136
