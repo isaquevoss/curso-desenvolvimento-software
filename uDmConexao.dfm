@@ -16,9 +16,10 @@ object DataModule1: TDataModule1
       'Database=consulta_problemas'
       'User_Name=root'
       'Password=root'
-      'Port=33306'
+      'Port=3330612'
       'Server=127.0.0.1'
-      'DriverID=MySQL')
+      'DriverID=MySQL'
+      'Compress=True')
     Left = 72
     Top = 32
   end
