@@ -40,7 +40,11 @@ var
   ini: TIniFile;
 begin
   ini := TIniFile.Create(EdNomeIni.Text);
+
+
   ini.WriteString('GERAL',EdCampo1.Text,EdValor1.Text);
+
+
   ini.Free();
 end;
 
@@ -49,7 +53,9 @@ var
   ini: TIniFile;
 begin
   ini := TIniFile.Create(EdNomeIni.Text);
-  EdValor1.Text := ini.ReadString('GERAL',EdCampo1.Text,'valor padrão');
+
+  EdValor1.Text := ini.ReadString('GERAL',EdCampo1.Text,'Sem informação');
+
   ini.Free();
 end;
 

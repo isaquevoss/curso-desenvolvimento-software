@@ -20,12 +20,14 @@ type
     RadioGroup1: TRadioGroup;
     Button2: TButton;
     OpenDialog1: TOpenDialog;
-    Button3: TButton;
-    EdArquivo: TEdit;
     SaveDialog1: TSaveDialog;
+    Button3: TButton;
+    edArquivo: TEdit;
+    Button4: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,17 +54,27 @@ end;
 
 procedure TForm3.Button3Click(Sender: TObject);
 begin
-  OpenDialog1.Execute();
-  ShowMessage(OpenDialog1.Files.Text);
+  if SaveDialog1.Execute() then
+  begin
+    edArquivo.Text := SaveDialog1.FileName;
+  end;
+end;
+
+procedure TForm3.Button4Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+  begin
+    edArquivo.Text := OpenDialog1.FileName;
+
+  end;
 end;
 
 procedure TForm3.carregarConfiguracoes;
 var
   arquivo_ini: TIniFile;
 begin
-  OpenDialog1.Execute();
 
-  arquivo_ini := TIniFile.Create(OpenDialog1.FileName);
+  arquivo_ini := TIniFile.Create('.\Config.ini');
 
   ComboBox1.ItemIndex := arquivo_ini.ReadInteger('CONFIG', ComboBox1.Name, -1);
   ComboBox2.ItemIndex := arquivo_ini.ReadInteger('CONFIG', ComboBox2.Name, -1);
@@ -84,7 +96,7 @@ procedure TForm3.gravarConfiguracoes;
 var
   arquivo_ini: TIniFile;
 begin
-  arquivo_ini := TIniFile.Create('.\Config.ini');
+  arquivo_ini := TIniFile.Create(edArquivo.Text);
 
   arquivo_ini.WriteInteger('CONFIG', ComboBox1.Name, ComboBox1.ItemIndex);
   arquivo_ini.WriteInteger('CONFIG', ComboBox2.Name, ComboBox2.ItemIndex);

@@ -107,29 +107,38 @@ object Form3: TForm3
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 314
+    Left = 444
     Top = 8
     Width = 75
-    Height = 25
-    Caption = 'Button3'
+    Height = 31
+    Caption = 'novo local ini'
     TabOrder = 9
     OnClick = Button3Click
   end
-  object EdArquivo: TEdit
-    Left = 144
-    Top = 8
-    Width = 121
+  object edArquivo: TEdit
+    Left = 72
+    Top = 18
+    Width = 265
     Height = 21
     TabOrder = 10
-    Text = 'EdArquivo'
+    Text = 'edArquivo'
+  end
+  object Button4: TButton
+    Left = 343
+    Top = 16
+    Width = 75
+    Height = 25
+    Caption = 'localizar ini'
+    TabOrder = 11
+    OnClick = Button4Click
   end
   object OpenDialog1: TOpenDialog
-    Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
-    Left = 88
-    Top = 8
+    Left = 360
+    Top = 88
   end
   object SaveDialog1: TSaveDialog
-    Left = 168
-    Top = 8
+    DefaultExt = 'ini'
+    Left = 264
+    Top = 88
   end
 end
