@@ -40,7 +40,7 @@ begin
   ini := TIniFile.Create('.\configDB.ini');
 
   Conexao.Params.Database := ini.ReadString('DATABASE','BASE','');
-  Conexao.Params.Add('PORT='+ini.ReadInteger('database','PORTA',3306));
+  Conexao.Params.Add('PORT=33306');
   ini.Free();
 
 end;
