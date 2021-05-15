@@ -13,13 +13,43 @@ object Form4: TForm4
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Button1: TButton
-    Left = 320
-    Top = 72
-    Width = 75
-    Height = 25
-    Caption = 'Button1'
+  object pnMenu: TPanel
+    Left = 0
+    Top = 0
+    Width = 527
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
     TabOrder = 0
-    OnClick = Button1Click
+    ExplicitTop = -6
+    object Button1: TButton
+      Left = 440
+      Top = 10
+      Width = 75
+      Height = 25
+      Caption = 'Configurar'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 32
+      Top = 10
+      Width = 75
+      Height = 25
+      Caption = 'Usu'#225'rios'
+      TabOrder = 1
+      OnClick = Button2Click
+    end
+  end
+  object pnSistema: TPanel
+    Left = 0
+    Top = 41
+    Width = 527
+    Height = 201
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitTop = 8
+    ExplicitHeight = 41
   end
 end

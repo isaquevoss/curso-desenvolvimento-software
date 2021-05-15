@@ -2,13 +2,14 @@ program configbd;
 
 uses
   Vcl.Forms,
-
   System.SysUtils,
   Vcl.Controls,
-
-  uPrincipal in 'uPrincipal.pas' {Form4} ,
-  uDMConexao in 'uDMConexao.pas' {dmConexao: TDataModule} ,
-  uConfig in 'uConfig.pas', Vcl.Dialogs {frmConfig};
+  uPrincipal in 'uPrincipal.pas' {Form4},
+  uDMConexao in 'uDMConexao.pas' {dmConexao: TDataModule},
+  uConfig in 'uConfig.pas' {frmConfig},
+  Vcl.Dialogs {frmConfig},
+  uDmUsuarios in 'uDmUsuarios.pas' {dmUsuarios: TDataModule},
+  uFrmUsuarios in 'uFrmUsuarios.pas' {frmUsuarios};
 
 {$R *.res}
 
@@ -18,7 +19,8 @@ begin
   Application.CreateForm(TForm4, Form4);
   Application.CreateForm(TdmConexao, dmConexao);
   Application.CreateForm(TfrmConfig, frmConfig);
-
+  Application.CreateForm(TdmUsuarios, dmUsuarios);
+  Application.CreateForm(TfrmUsuarios, frmUsuarios);
   if not FileExists('configbd.ini') then
   begin
     if frmConfig.ShowModal <> mrOk then

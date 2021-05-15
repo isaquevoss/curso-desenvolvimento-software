@@ -15,7 +15,7 @@ type
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
   private
-    { Private declarations }
+
   public
     procedure conectarBanco();
   end;
@@ -24,6 +24,8 @@ var
   dmConexao: TdmConexao;
 
 implementation
+
+
 
 { %CLASSGROUP 'Vcl.Controls.TControl' }
 

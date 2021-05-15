@@ -1,6 +1,7 @@
 object frmConfig: TfrmConfig
   Left = 0
   Top = 0
+  Align = alClient
   Caption = 'frmConfig'
   ClientHeight = 172
   ClientWidth = 354
