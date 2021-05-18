@@ -47,7 +47,7 @@ function TdmUsuarios.deletarUsuario(id: integer): Boolean;
 begin
 
   QrUpdateInsert.SQL.Clear();
-  QrUpdateInsert.SQL.Add('delete a from usuarios where id = :id');
+  QrUpdateInsert.SQL.Add('delete from usuarios where id = :id');
   QrUpdateInsert.ParamByName('id').AsInteger := id;
   QrUpdateInsert.ExecSQL();
 
