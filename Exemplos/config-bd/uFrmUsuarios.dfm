@@ -24,9 +24,6 @@ object frmUsuarios: TfrmUsuarios
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 1
-    ExplicitTop = -5
-    ExplicitWidth = 523
     DesignSize = (
       477
       75)
@@ -67,6 +64,7 @@ object frmUsuarios: TfrmUsuarios
       Height = 25
       Caption = 'Novo'
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Button2: TButton
       Left = 135
@@ -75,6 +73,7 @@ object frmUsuarios: TfrmUsuarios
       Height = 25
       Caption = 'Alterar'
       TabOrder = 1
+      OnClick = Button2Click
     end
     object Button3: TButton
       Left = 232
@@ -93,10 +92,6 @@ object frmUsuarios: TfrmUsuarios
     Height = 224
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 40
-    ExplicitTop = 184
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1

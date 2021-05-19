@@ -18,7 +18,13 @@ type
     { Private declarations }
   public
     procedure carregarQrUsuarios();
+
     function deletarUsuario(id: integer): Boolean;
+
+    function cadastrarUsuario(nome:string): Boolean;
+
+    function alterarUsuario(id: Integer; nome: string): Boolean;
+
 
     procedure atualizarQrUsuarios();
   end;
@@ -33,9 +39,28 @@ implementation
 {$R *.dfm}
 { TdmUsuarios }
 
+function TdmUsuarios.alterarUsuario(id: Integer; nome: string): Boolean;
+begin
+  QrUpdateInsert.SQL.Clear();
+
+  QrUpdateInsert.SQL.Add('update usuarios set nome = :nome where id = :id');
+  QrUpdateInsert.ParamByName('id').AsInteger := id;
+  QrUpdateInsert.ParamByName('nome').AsString := nome;
+  QrUpdateInsert.ExecSQL();
+end;
+
 procedure TdmUsuarios.atualizarQrUsuarios;
 begin
   QrUsuarios.Refresh();
+end;
+
+function TdmUsuarios.cadastrarUsuario(nome: string): Boolean;
+begin
+  QrUpdateInsert.SQL.Clear();
+
+  QrUpdateInsert.SQL.Add('insert into usuarios(nome)values(:nome)');
+  QrUpdateInsert.ParamByName('nome').AsString := nome;
+  QrUpdateInsert.ExecSQL();
 end;
 
 procedure TdmUsuarios.carregarQrUsuarios;
