@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uDmUsuarios, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, Vcl.ExtCtrls, Vcl.StdCtrls, dxGDIPlusClasses, Vcl.DBCtrls;
+  Vcl.DBGrids, Vcl.ExtCtrls, Vcl.StdCtrls, dxGDIPlusClasses, Vcl.DBCtrls,
+  uUsuario;
 
 type
   TfrmUsuarios = class(TForm)
@@ -37,35 +38,63 @@ implementation
 
 procedure TfrmUsuarios.Button1Click(Sender: TObject);
 var
-  usuario: string;
+  usuario: TUsuario;
+  nomeUsuario: string;
 begin
-  if InputQuery('Novo usuário','Nome do usuário',usuario) then
-  begin
-    dmUsuarios.cadastrarUsuario(usuario);
-    dmUsuarios.carregarQrUsuarios();
-    dmUsuarios.QrUsuarios.Last();
+  usuario := TUsuario.Create();
+  try
+    if InputQuery('Novo usuário', 'Nome do usuário', nomeUsuario) then
+    begin
+      usuario.nome := nomeUsuario;
+//      dmUsuarios.cadastrarUsuario(usuario);
+      dmUsuarios.carregarQrUsuarios();
+      dmUsuarios.QrUsuarios.Last();
+    end;
+  finally
+    usuario.Free();
   end;
+
 end;
 
 procedure TfrmUsuarios.Button2Click(Sender: TObject);
 var
-  usuario: string;
-  id: Integer;
+  nomeUsuario: string;
+  usuario: TUsuario;
 begin
-  usuario := dmUsuarios.QrUsuarios.FieldByName('nome').AsString;
-  id := dmUsuarios.QrUsuarios.FieldByName('id').AsInteger;
-  if InputQuery('Alterar usuário','Nome do usuário',usuario) then
-  begin
-    dmUsuarios.alterarUsuario(id,usuario);
-    dmUsuarios.QrUsuarios.RefreshRecord();
+  usuario := TUsuario.Create();
+  try
+    usuario.carregarPeloId(dmUsuarios.QrUsuarios.FieldByName('id').AsInteger);
+
+    nomeUsuario := usuario.nome;
+
+    if InputQuery('Alterar usuário', 'Nome do usuário', nomeUsuario) then
+    begin
+      usuario.nome := nomeUsuario;
+
+      usuario.gravar();
+
+      dmUsuarios.QrUsuarios.RefreshRecord();
+    end;
+  finally
+    usuario.Free;
   end;
+
 end;
 
 procedure TfrmUsuarios.Button3Click(Sender: TObject);
+var
+  usuario: TUsuario;
 begin
+  usuario := TUsuario.Create();
+  try
+    usuario.id := dmUsuarios.QrUsuarios.FieldByName('id').AsInteger;
+    usuario.nome := dmUsuarios.QrUsuarios.FieldByName('nome').AsString;
 
-  dmUsuarios.deletarUsuario(dmUsuarios.QrUsuarios.FieldByName('id').AsInteger);
-  ShowMessage('Processo concluído');
+//    dmUsuarios.deletarUsuario(usuario);
+    ShowMessage('Processo concluído');
+  finally
+    usuario.Free;
+  end;
 
 end;
 

@@ -17,4 +17,9 @@ object dmUsuarios: TdmUsuarios
     Left = 104
     Top = 16
   end
+  object QrBuscarUsuario: TFDQuery
+    Connection = dmConexao.FDConnection1
+    Left = 112
+    Top = 80
+  end
 end

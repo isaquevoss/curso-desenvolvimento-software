@@ -9,7 +9,8 @@ uses
   uConfig in 'uConfig.pas' {frmConfig},
   Vcl.Dialogs {frmConfig},
   uDmUsuarios in 'uDmUsuarios.pas' {dmUsuarios: TDataModule},
-  uFrmUsuarios in 'uFrmUsuarios.pas' {frmUsuarios};
+  uFrmUsuarios in 'uFrmUsuarios.pas' {frmUsuarios},
+  uUsuario in 'uUsuario.pas';
 
 {$R *.res}
 
