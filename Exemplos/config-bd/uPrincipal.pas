@@ -37,8 +37,6 @@ procedure TForm4.Button2Click(Sender: TObject);
 begin
   frmUsuarios.Parent := pnSistema;
   frmUsuarios.Show();
-
-
 end;
 
 end.

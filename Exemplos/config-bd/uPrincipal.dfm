@@ -21,7 +21,6 @@ object Form4: TForm4
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = -6
     object Button1: TButton
       Left = 440
       Top = 10
@@ -32,7 +31,7 @@ object Form4: TForm4
       OnClick = Button1Click
     end
     object Button2: TButton
-      Left = 32
+      Left = 16
       Top = 10
       Width = 75
       Height = 25
@@ -49,7 +48,5 @@ object Form4: TForm4
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 8
-    ExplicitHeight = 41
   end
 end
