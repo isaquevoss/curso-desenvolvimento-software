@@ -1,9 +1,9 @@
-object Form4: TForm4
+﻿object Form4: TForm4
   Left = 0
   Top = 0
   Caption = 'Form4'
-  ClientHeight = 224
-  ClientWidth = 527
+  ClientHeight = 281
+  ClientWidth = 447
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,41 +13,65 @@ object Form4: TForm4
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 96
+    Width = 46
+    Height = 13
+    Caption = 'Descricao'
+  end
+  object lbCódigo: TLabel
+    Left = 185
+    Top = 56
+    Width = 41
+    Height = 13
+    Caption = 'lbC'#243'digo'
+  end
+  object edId: TEdit
+    Left = 8
+    Top = 8
+    Width = 121
+    Height = 21
+    NumbersOnly = True
+    TabOrder = 0
+    Text = '1'
+  end
   object Button1: TButton
-    Left = 320
-    Top = 22
+    Left = 151
+    Top = 8
     Width = 75
     Height = 25
-    Caption = 'Button1'
-    TabOrder = 0
+    Caption = 'Carregar'
+    TabOrder = 1
     OnClick = Button1Click
   end
-  object Edit1: TEdit
-    Left = 72
-    Top = 24
-    Width = 193
+  object edDescricao: TEdit
+    Left = 76
+    Top = 93
+    Width = 341
     Height = 21
-    TabOrder = 1
-    Text = 'Edit1'
-  end
-  object Memo1: TMemo
-    Left = 72
-    Top = 80
-    Width = 185
-    Height = 89
-    Lines.Strings = (
-      'Memo1')
     TabOrder = 2
-    Visible = False
+    Text = 'edDescricao'
   end
-  object Button2: TButton
-    Left = 320
-    Top = 144
-    Width = 75
-    Height = 25
-    Caption = 'Button2'
+  object lbSolucoes: TListBox
+    Left = 0
+    Top = 120
+    Width = 447
+    Height = 161
+    Align = alBottom
+    ItemHeight = 13
     TabOrder = 3
-    Visible = False
-    OnClick = Button2Click
+    OnDblClick = lbSolucoesDblClick
+    ExplicitLeft = 8
+    ExplicitTop = 119
+  end
+  object dtDataHoraProblema: TDateTimePicker
+    Left = 314
+    Top = 66
+    Width = 103
+    Height = 21
+    Date = 44348.858960648150000000
+    Time = 44348.858960648150000000
+    TabOrder = 4
   end
 end
