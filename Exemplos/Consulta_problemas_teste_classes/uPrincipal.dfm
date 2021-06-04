@@ -2,8 +2,8 @@
   Left = 0
   Top = 0
   Caption = 'Form4'
-  ClientHeight = 281
-  ClientWidth = 447
+  ClientHeight = 298
+  ClientWidth = 516
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -55,15 +55,13 @@
   end
   object lbSolucoes: TListBox
     Left = 0
-    Top = 120
-    Width = 447
+    Top = 137
+    Width = 516
     Height = 161
     Align = alBottom
     ItemHeight = 13
     TabOrder = 3
     OnDblClick = lbSolucoesDblClick
-    ExplicitLeft = 8
-    ExplicitTop = 119
   end
   object dtDataHoraProblema: TDateTimePicker
     Left = 314
