@@ -39,14 +39,20 @@ type
     property emitente: TEmitente read Femitente write Femitente;
     property cliente: TCliente read Fcliente write Fcliente;
     property produto: TProduto read Fproduto write Fproduto;
-
+    constructor Create();
     procedure gravar();
-
   end;
 
 implementation
 
 { TNotaFiscal }
+
+constructor TNotaFiscal.Create;
+begin
+  emitente := TEmitente.Create();
+  cliente := TCliente.Create();
+  produto := TProduto.Create();
+end;
 
 procedure TNotaFiscal.gravar;
 begin
