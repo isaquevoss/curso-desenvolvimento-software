@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uDmUsuarios, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, Vcl.ExtCtrls, Vcl.StdCtrls, dxGDIPlusClasses, Vcl.DBCtrls,
+  Vcl.DBGrids, Vcl.ExtCtrls, Vcl.StdCtrls,  Vcl.DBCtrls,
   uUsuario;
 
 type
