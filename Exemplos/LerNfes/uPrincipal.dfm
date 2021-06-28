@@ -1,7 +1,7 @@
-object Form1: TForm1
+object frmNotaFiscal: TfrmNotaFiscal
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'frmNotaFiscal'
   ClientHeight = 299
   ClientWidth = 635
   Color = clBtnFace
@@ -14,13 +14,31 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
-    Left = 376
-    Top = 208
-    Width = 75
+    Left = 504
+    Top = 8
+    Width = 105
     Height = 25
-    Caption = 'Button1'
+    Caption = 'Carregar Nota'
     TabOrder = 0
     OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 424
+    Top = 256
+    Width = 203
+    Height = 25
+    Caption = 'Mostrar dados Nota'
+    TabOrder = 1
+    OnClick = Button2Click
+  end
+  object Memo1: TMemo
+    Left = 8
+    Top = 88
+    Width = 585
+    Height = 89
+    Lines.Strings = (
+      'Memo1')
+    TabOrder = 2
   end
   object ACBrNFe1: TACBrNFe
     Configuracoes.Geral.SSLLib = libNone

@@ -41,9 +41,8 @@ begin
   FDConnection1.Params.Clear();
   FDConnection1.DriverName := 'MySQL';
   FDConnection1.Params.Database := 'consulta_problemas';
-//  FDConnection1.Params.Serser
+  FDConnection1.Params.Add('server=' + arquivo_ini.ReadString('DB', 'HOST', ''));
   FDConnection1.Params.Add('host=' + arquivo_ini.ReadString('DB', 'HOST', ''));
-    FDConnection1.Params.Add('server=' + arquivo_ini.ReadString('DB', 'HOST', ''));
   FDConnection1.Params.Add('port=' + arquivo_ini.ReadString('DB',
     'PORT', '3306'));
   FDConnection1.Params.Add('user_name=root');

@@ -43,6 +43,9 @@ var
 
 implementation
 
+uses
+  pcnNFe;
+
 {$R *.dfm}
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -92,26 +95,33 @@ var
   i: integer;
   produto: TProduto;
   a: Integer;
+  nfe: TNFe;
+  prod: TProd;
 begin
   if OpenDialog1.Execute then
   begin
     ACBrNFe1.NotasFiscais.LoadFromFile(OpenDialog1.FileName);
     for a := 0 to ACBrNFe1.NotasFiscais.Count - 1 do
-      for i := 0 to ACBrNFe1.NotasFiscais[a].NFe.Det.Count - 1 do
+    begin
+      nfe := ACBrNFe1.NotasFiscais[a].NFe;
+
+      for i := 0 to nfe.Det.Count - 1 do
       begin
+        prod := nfe.Det[i].Prod;
+
         produto := TProduto.Create();
         produto.codigo := i;
-        produto.descricao := ACBrNFe1.NotasFiscais[a].NFe.Det[i].Prod.xProd;
-        produto.codBarras := ACBrNFe1.NotasFiscais[a].NFe.Det[i].Prod.cEAN;
+        produto.descricao := Prod.xProd;
+        produto.codBarras := Prod.cEAN;
         produto.gravar();
       end;
+    end;
 
   end;
 end;
 
 procedure TForm1.Button5Click(Sender: TObject);
 begin
-
 
   ACBrNFe1.NotasFiscais.Add;
 
@@ -121,11 +131,11 @@ begin
 
   ACBrNFe1.NotasFiscais[0].NFe.Det; // produtos e serviços
 
-  ACBrNFe1.NotasFiscais[0].EnviarEmail('','','');
+  ACBrNFe1.NotasFiscais[0].EnviarEmail('', '', '');
 
   //etc
 
-  ACBrNFe1.NotasFiscais.GerarNFe();// gera o xml;
+  ACBrNFe1.NotasFiscais.GerarNFe(); // gera o xml;
 
   ACBrNFe1.WebServices.Enviar(); // transmitir a nfe
 
@@ -140,6 +150,8 @@ procedure TProduto.gravar;
 begin
   ShowMessage('gravando produto ' + Self.descricao + ' ' + Self.codBarras);
 end;
+
+
 
 end.
 

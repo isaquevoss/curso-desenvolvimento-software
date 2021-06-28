@@ -1,12 +1,12 @@
-program Consulta_problemas_teste_classes;
+program EXEMPLO;
 
 uses
   Vcl.Forms,
-  uPrincipal in 'uPrincipal.pas' {Form4},
+  uDMConexao in 'uDMConexao.pas' {dmConexao: TDataModule},
+  uPrincpal in 'uPrincpal.pas' {Form1},
   uProblema in 'uProblema.pas',
   uSolucao in 'uSolucao.pas',
-  uDMConexao in 'uDMConexao.pas' {dmConexao: TDataModule},
-  uCarregarProblemas in 'uCarregarProblemas.pas' {Form1};
+  uProblema2 in 'uProblema2.pas';
 
 {$R *.res}
 
@@ -14,10 +14,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TForm4, Form4);
-
-
   Application.CreateForm(TdmConexao, dmConexao);
-
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

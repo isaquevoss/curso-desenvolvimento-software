@@ -2,7 +2,7 @@ program LerNFes;
 
 uses
   Vcl.Forms,
-  uPrincipal in 'uPrincipal.pas' {Form1},
+  uPrincipal in 'uPrincipal.pas' {frmNotaFiscal},
   uClasses in 'uClasses.pas';
 
 {$R *.res}
@@ -10,6 +10,6 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmNotaFiscal, frmNotaFiscal);
   Application.Run;
 end.

@@ -45,13 +45,20 @@ begin
   begin
     problema := TProblema.Create();
     problema.carregarPeloId(qrProblemas.FieldByName('id').AsInteger);
+
     if grid.Cells[0, 1] <> '' then
       grid.RowCount := grid.RowCount + 1;
+
     linha := grid.RowCount - 1;
-    grid.Cells[0, linha] := IntToStr(problema.id);
-    grid.Cells[1, linha] := problema.descricao;
-    grid.Cells[2, linha] := DateToStr(problema.dataHora);
-    grid.Objects[0, linha] := problema;
+    grid.Cells[0,linha] := IntToStr( problema.id );
+    grid.Cells[1,linha] := problema.descricao;
+    grid.Cells[2,linha] := DateToStr(  problema.dataHora );
+
+
+//    grid.Cells[0, linha] := IntToStr(problema.id);
+//    grid.Cells[1, linha] := problema.descricao;
+//    grid.Cells[2, linha] := DateToStr(problema.dataHora);
+//    grid.Objects[0, linha] := problema;
 
     qrProblemas.Next();
   end;

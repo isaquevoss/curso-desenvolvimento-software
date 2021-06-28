@@ -2,6 +2,9 @@ unit uClasses;
 
 interface
 
+uses
+  System.Generics.Collections;
+
 type
   TEmitente = class
   private
@@ -34,12 +37,18 @@ type
   private
     Femitente: TEmitente;
     Fcliente: TCliente;
-    Fproduto: TProduto;
+    Fprodutos: TList<TProduto>;
   public
     property emitente: TEmitente read Femitente write Femitente;
     property cliente: TCliente read Fcliente write Fcliente;
-    property produto: TProduto read Fproduto write Fproduto;
+    property produtos: TList<TProduto> read Fprodutos write Fprodutos;
+       //uses
+    //  System.Generics.Collections;
+
+    function jaExisteCodBarras(barras: string): Boolean;
+
     constructor Create();
+
     procedure gravar();
   end;
 
@@ -51,12 +60,28 @@ constructor TNotaFiscal.Create;
 begin
   emitente := TEmitente.Create();
   cliente := TCliente.Create();
-  produto := TProduto.Create();
+  produtos := TList<TProduto>.Create;
 end;
 
 procedure TNotaFiscal.gravar;
 begin
   //
+end;
+
+function TNotaFiscal.jaExisteCodBarras(barras: string): Boolean;
+var
+  i: Integer;
+begin
+  Result := False;
+  if (barras = '') or (barras = 'SEM GTIN') then
+    exit;
+
+
+  for i := 0 to produtos.Count - 1 do
+  begin
+    if barras = produtos[i].codBarras then
+      result := True;
+  end;
 end;
 
 end.
